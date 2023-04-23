@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <h1>Tareas Por cumplir</h1>
+
+    <div class="container">
+
+        <form id="form_action">
+
+            <div class="form_group">
+                <label>Nombra tu Todo</label>
+                <input 
+                    type="text" 
+                    name="title" 
+                    id="title" 
+                    class="form_control" 
+                    placeholder="Tienes una tarea que realizar"
+                    required
+                    />
+            </div>
+
+            <div class="form_group">
+                
+                <select name="select" id="selectedId" class="form_control" style="width: fit-content; margin-left: auto;">
+                    <option value="Important">Importante</option>
+                    <option value="moderada">Moderada</option>
+                    <option value="noimportante">Puede Esperar</option>
+                </select>
+            </div>
+
+            <div class="form_group">
+                <label>Description</label>
+                <textarea 
+                    class="form_control" 
+                    name="descriptiom" 
+                    id="descriptiom" 
+                    placeholder="Description Todo"
+                    
+                ></textarea>
+            </div>
+
+            <div class="checkbox_form">
+                <label>State of Todo</label>
+                <input 
+                    type="checkbox" 
+                    name="Important" 
+                    id="importantTodo"
+                    />
+            </div>
+
+
+            <button type="submit" id="handleSubmit" class="btn btn--form">
+                Create Todo
+            </button>
+        </form>
+
+        <div class="form_btn">
+            <button class="btn btn--showForm" id="showForm">
+                <i class="fa-solid fa-plus"></i> Created
+            </button>
+        </div>
+        
+        <ul class="list_todos" id="root"></ul>
+    </div>
+
+
+
+
+
+
+
+
+    <template id="template_li">
+            
+            <li class="todo-card" >
+                <div class="todo-content">
+                    <p class="todo-title">title</p> 
+                    <span class="activate">
+                        <i class="fa-solid fa-circle"></i>
+                    </span>
+                </div>
+                <div class="todo-paragraph">
+                    <p class="todo-text"></p>
+                </div>
+                <p class="todo-created">
+                    Created time
+                </p>
+                <div class="todo-pannel">
+                    
+                    <button class="btn btn--todo showDescription">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </button>
+                    
+                    <div>
+                        <button class="btn btn--todo deleted">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+    
+                        
+                        <button class="btn btn--todo edit">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </button>
+                        
+                       
+                    </div>
+
+                </div>
+            </li>
+        
+    </template>
+
+
+
+    <script src="./app.js" type="module"></script>
+    
+</body>
+</html>
