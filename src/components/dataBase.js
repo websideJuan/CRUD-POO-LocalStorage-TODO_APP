@@ -56,7 +56,7 @@ class Todo {
             template_li.querySelector('.todo-card').dataset.id = todo.id
             template_li.querySelector('.todo-title').textContent = todo.title
             template_li.querySelector('.todo-created').textContent = todo.createdTodo
-            template_li.querySelector('.todo-text').innerHTML = todo.description
+            template_li.querySelector('.todo-text').textContent = todo.description
 
 
             const clone = template_li.cloneNode(true)
