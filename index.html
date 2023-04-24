@@ -17,8 +17,25 @@
 
 </head>
 <body>
-    <h1>Tareas Por cumplir</h1>
+    <nav>
+        <div class="nav_brand">
+            <a href="#" class="nav_logo">Tareas</a>
+        </div>
 
+        <div class="nav-btns">
+            <button class="btn nav-btn-activate">
+                <i class="fa-regular fa-sun"></i>
+            </button>
+
+
+            <button class="btn">
+                <i class="fa-regular fa-moon"></i>
+            </button>
+        </div>
+    
+    </nav>
+
+    
     <div class="container">
 
         <form id="form_action">
@@ -46,7 +63,10 @@
 
             <div class="form_group">
                 <label>Description</label>
+                
+
                 <textarea 
+                    rows="10"
                     class="form_control" 
                     name="descriptiom" 
                     id="descriptiom" 
@@ -65,18 +85,46 @@
             </div>
 
 
-            <button type="submit" id="handleSubmit" class="btn btn--form">
+            <button type="submit" id="handleSubmit" class="btn--form">
                 Create Todo
             </button>
         </form>
 
         <div class="form_btn">
-            <button class="btn btn--showForm" id="showForm">
+            <button class="btn--showForm" id="showForm">
                 <i class="fa-solid fa-plus"></i> Created
             </button>
         </div>
         
         <ul class="list_todos" id="root"></ul>
+
+        <aside class="aside">
+            <div class="aside-absolute">
+                <div class="aside-about">
+                    <img src="./src/assets/Juan_Francisco_Herrera-removebg-preview.png" alt="image perfil del desarrollador de esta web" class="aside-img">
+
+                    <div class="aside-about-content">
+                        <h3 class="title-content">Juan Diseñador y desarrollador Web!</h3>
+                        <p class="paragrap-content">Desarrollador Web autodidacta orgulloso de lo logrado con mis propios medios, claro apoyo de toda una industria amigable con los recien llegados😊</p>
+                        <a href="#" class="cta cta--perfil">veiw >></a>
+                    </div>
+                </div>
+                <div class="aside-social">
+                    <div class="aside-social-group">
+                        <i class="fa-brands fa-facebook"></i>
+                        <a href="#" class="aside-banner facebook">Facebook</a>
+                    </div>
+                    <div class="aside-social-group">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <a href="#" class="aside-banner whatsaap">whatsaap</a>
+                    </div>
+                    <div class="aside-social-group">
+                        <i class="fa-brands fa-instagram"></i>
+                        <a href="#" class="aside-banner instagram">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
 
 
@@ -95,6 +143,7 @@
                         <i class="fa-solid fa-circle"></i>
                     </span>
                 </div>
+
                 <div class="todo-paragraph">
                     <p class="todo-text"></p>
                 </div>
@@ -103,21 +152,19 @@
                 </p>
                 <div class="todo-pannel">
                     
-                    <button class="btn btn--todo showDescription">
+                    <button class="btn--todo showDescription">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </button>
                     
                     <div>
-                        <button class="btn btn--todo deleted">
+                        <button class="btn--todo deleted">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
     
                         
-                        <button class="btn btn--todo edit">
+                        <button class="btn--todo edit">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </button>
-                        
-                       
                     </div>
 
                 </div>

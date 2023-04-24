@@ -6,36 +6,54 @@
 
 
 .container{
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 100px;
+    width: 100%;
+    background-color: rgba(212, 211, 211, 0.357);
+    outline: .01rem solid rgba(212, 211, 211, 0.357);
+    /* padding-top: .1rem; */
 }
 
-hr{
-    border: .1rem solid rgba(0 0 0 / .1);
-    border-radius: 100%;
+button{
+    border: none;
+    outline: none;
+    color: white;
+}
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 10px -5px rgba(0 0 0 / .5);
+    padding:  1rem;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li{
+    padding-left: .5rem;
 }
 
 label{
     color: black;
 }
 
-h1{
-
-    font-size: 1.6rem;
-    background-color: royalblue;
-    color: white;
-    text-align: left;
-    display: block;
-    padding: 1rem ;
-    margin-bottom: 1rem;
+.nav_brand{
     -webkit-clip-path: polygon(0% 0%, 75% 0%, 85% 53%, 75% 100%, 0% 100%);
     clip-path: polygon(0% 0%, 75% 0%, 85% 53%, 75% 100%, 0% 100%);
+}
+
+.nav_logo{
+    display: inline-block;
+    color: royalblue;
+    text-decoration: none;
+    font-size: 1.3rem;
 }
 
 body{
     font-family: 'Roboto', sans-serif;
     background-color: rgba(255, 255, 255, 0.325);
+    /* height: 100vh; */
 }
 
 form{
@@ -43,12 +61,12 @@ form{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border-radius: .4rem;
+
     transition: heigth 1s;
-    margin-bottom: 1rem;
     overflow: hidden;
     height: 0;
     transition: height .3s, padding .1s;
+    background-color: #fff;
 }
 
 .btn--showForm{
@@ -57,11 +75,6 @@ form{
     justify-content: space-between;
     margin-bottom: 1rem;
     gap: .5rem;
-}
-
-form:hover {
-    -webkit-clip-path: circle(141.9% at 0 0);
-    clip-path: circle(141.9% at 0 0);
 }
 
 .form_group{
@@ -96,16 +109,36 @@ form:hover {
 
 .btn{
     background-color: royalblue;
-    padding: .7rem;
     color: white;
-    box-shadow: 0px 0px 10px -3px rgba(0 0 0 / .2);
+    padding: .4rem .5rem;
+    box-shadow: 0px 0px 10px -7px rgba(0 0 0 / .2);
     border: none;
     outline: none;
-    border-radius: .3rem;
+    border-radius: 100%;
+}
+
+.btn--form{
+    background-color: royalblue;
+    border-radius: .4rem;
+    padding: .5rem;
 }
 
 .btn:active{
-    box-shadow: none;
+    box-shadow: inset;
+}
+
+.nav-btns{
+    width: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 255, 0.707);
+    padding: .3rem;
+    border-radius: 20px;
+}
+
+.nav-btn-activate{
+    background-color: blue;
 }
 
 .disable{   
@@ -116,21 +149,76 @@ form:hover {
 
 .list_todos{
     list-style: none;
+    height: 90vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0%, 100%));
     gap: 1rem;
+
+    padding: 1rem;
+    overflow-y: scroll;
 }
 
 .todo-card{
-    box-shadow: 0px 0px 10px -5px rgba(83, 0, 0, 0.284);
+    box-shadow: 0px 0px 10px -5px rgba(83, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    gap: .7rem;
-    
+
+    justify-content: space-between;
+    /* align-items: center; */
     border-radius: .3rem;
-    overflow: hidden;
+
     color: royalblue;
+    background-color: #fff;
     transition: transform .5s;
+    position: relative;
+}
+
+.todo-card--show{
+    cursor: pointer;
+    background-color: #fff;
+    animation: rotate .8s linear 1 both;
+}
+
+.todo-card--show::after{
+    content: 'Pronto...';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    transition: background-color .3s 300ms, opacity .3s 300ms;
+    color: white;
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+
+.todo-card--show:hover::after{
+    border-radius: .4rem;
+    background-color: #fff;
+    color: royalblue;
+    opacity: 1;
+}
+
+.btn--showForm{
+    border: none;
+    outline: none;
+    color: white;
+    padding: .5rem;
+    border-radius: .4rem;
+    background-color: blue;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
 }
 
 .todo-pannel{
@@ -154,11 +242,48 @@ form:hover {
     text-decoration: underline;
 }
 
+aside{
+    position: relative;
+}
+
+.aside-absolute{
+    position: absolute;
+    inset: 0;
+}
+
+.aside-about{
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.aside-img{
+    max-width: 100%;
+    height: auto;
+}
+
+.aside-about-content{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.title-content{
+    color: royalblue;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.paragrap-content{
+    font-size: .9em;
+    text-align: justify;
+    line-height: 1.5;
+}
+
 .todo-content{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: rgba(211, 211, 211, 0.288); */
     padding: 1rem;
 }
 
@@ -257,33 +382,16 @@ form:hover {
     outline: none;
 }
 
-
-@media (min-width:375px) {
-    h1{
-        width: max-content;
-        font-size: 1.7rem;
-        padding-right: 6rem;
-    }
-}
-
-
 @media (min-width: 1084px) {
-    h1{
-        width: fit-content;
-        padding-right: 6rem;
-    }
-
     form{
-        box-shadow: 0 0 15px -7px rgba(0 0 0 / .3);
-        height: fit-content !important;
-        padding: 1rem;
+        height: fit-content;
+        padding: 1rem !important;
     }
 
     .container{
-        max-width: 70%;
+        width: 100%;
         display: grid;
-        grid-template-columns: 40% 1fr;
-        gap: 3rem;
+        grid-template-columns: 15% 1fr 15%;
     }
 
     .form_btn{
@@ -291,8 +399,21 @@ form:hover {
     }
 
     .list_todos{
-        grid-template-columns: repeat(2, minmax(0%, 100%));
+        grid-template-columns: repeat(3, minmax(0, 100%));
+        align-content: flex-start;
+        align-items: start;
+        gap: auto;
+        height: 100%;
     }
+
+    .todo-card{
+        gap: .5rem;
+    }
+
+    .aside-absolute{
+        padding-left: 1rem;
+    }
+
 
     .popUp{
         max-width: 300px;
