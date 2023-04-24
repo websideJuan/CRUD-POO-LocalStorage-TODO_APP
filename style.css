@@ -5,13 +5,6 @@
 }
 
 
-.container{
-    width: 100%;
-    background-color: rgba(212, 211, 211, 0.357);
-    outline: .01rem solid rgba(212, 211, 211, 0.357);
-    /* padding-top: .1rem; */
-}
-
 button{
     border: none;
     outline: none;
@@ -24,6 +17,9 @@ nav{
     justify-content: space-between;
     box-shadow: 0 0 10px -5px rgba(0 0 0 / .5);
     padding:  1rem;
+    position: relative;
+    z-index: 999;
+    background-color: #fff;
 }
 
 
@@ -42,20 +38,22 @@ nav{
 body{
     font-family: 'Roboto', sans-serif;
     background-color: rgba(255, 255, 255, 0.325);
-    /* height: 100vh; */
+    background-color: rgba(212, 211, 211, 0.357);
 }
 
-form{
+.form{
     box-sizing: content-box;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
-    transition: heigth 1s;
+    background-color: #fff;  
     overflow: hidden;
     height: 0;
-    transition: height .3s, padding .1s;
-    background-color: #fff;
+    transition: height .3s, padding .1s;  
+}
+
+.fomrAction{
+    height: fit-content;
 }
 
 .btn--showForm{
@@ -64,6 +62,8 @@ form{
     justify-content: space-between;
     margin-bottom: 1rem;
     gap: .5rem;
+    position: relative;
+    z-index: 999;
 }
 
 .form_group{
@@ -106,6 +106,11 @@ form{
     border-radius: 100%;
 }
 
+.cta{
+    text-decoration: none;
+    color: royalblue;
+}
+
 .btn--form{
     background-color: royalblue;
     border-radius: .4rem;
@@ -138,13 +143,11 @@ form{
 
 .list_todos{
     list-style: none;
-    height: 90vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0%, 100%));
     gap: 1rem;
-
-    padding: 1rem;
-    overflow-y: scroll;
+    padding: 0 1rem;
+    padding-bottom: 1rem;
 }
 
 .todo-card{
@@ -153,7 +156,6 @@ form{
     flex-direction: column;
 
     justify-content: space-between;
-    /* align-items: center; */
     border-radius: .3rem;
 
     color: royalblue;
@@ -162,9 +164,16 @@ form{
     position: relative;
 }
 
+.todo-text{
+    word-wrap: break-word;
+}
+
+.todo-created{
+    margin-left: auto;
+}
+
 .todo-card--show{
     cursor: pointer;
-    background-color: #fff;
     animation: rotate .8s linear 1 both;
 }
 
@@ -178,14 +187,13 @@ form{
     transition: background-color .3s 300ms, opacity .3s 300ms;
     color: white;
     transform: rotateY(180deg);
-    opacity: 0;
-}
 
-.todo-card--show:hover::after{
     border-radius: .4rem;
+
     background-color: #fff;
     color: royalblue;
-    opacity: 1;
+    /* opacity: 1; */
+    pointer-events: none;
 }
 
 .btn--showForm{
@@ -195,8 +203,6 @@ form{
     padding: .5rem;
     border-radius: .4rem;
     background-color: blue;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
@@ -221,6 +227,9 @@ form{
     background-color: #fff;
     color: royalblue;
     cursor: pointer;
+    position: relative;
+    z-index: 999;
+    pointer-events: all;
 }
 
 .todo-created{
@@ -238,35 +247,50 @@ aside{
 .aside-absolute{
     position: absolute;
     inset: 0;
+    
 }
 
 .aside-about{
+    box-shadow: 0 0 10px -5px rgba(0 0 0 / .5);
+    position: sticky;
+    top: 0px;
     background-color: #fff;
     display: flex;
     flex-wrap: wrap;
 }
 
 .aside-img{
-    max-width: 100%;
-    height: auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 100%;
+    padding-top: 1rem;
 }
 
 .aside-about-content{
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem 2rem;
 }
 
 .title-content{
     color: royalblue;
-    align-items: center;
+    align-items: justify;
+    margin-bottom: .5rem;
+}
+
+.subtitle-content{
+    font-size: .9rem;
+    color: lightgray;
     margin-bottom: 1rem;
 }
 
 .paragrap-content{
-    font-size: .9em;
+    font-size: .8em;
     text-align: justify;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 .todo-content{
@@ -324,6 +348,7 @@ aside{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 999;
 }
 
 .popUp{
@@ -372,36 +397,37 @@ aside{
 }
 
 @media (min-width: 1084px) {
-    form{
-        height: fit-content;
-        padding: 1rem !important;
+    .container{
+        /* width: %; */
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 17% 1fr 17%;
+        /* grid-template-rows: 80vh 1fr; */
     }
 
-    .container{
-        width: 100%;
-        display: grid;
-        grid-template-columns: 15% 1fr 15%;
+    .grid-col-one{
+        grid-column: 1/2;
+        grid-row: 1/3;
     }
 
     .form_btn{
-        display: none;
+        grid-column: 1/2;
+        grid-row: 2/3;
+
     }
 
     .list_todos{
+        padding: 1rem;
         grid-template-columns: repeat(3, minmax(0, 100%));
-        align-content: flex-start;
-        align-items: start;
-        height: 100vh;
     }
 
     .todo-card{
         gap: .5rem;
     }
 
-    .aside-absolute{
-        padding-left: 1rem;
+    .btn--showForm{
+        margin: 1rem 0;
     }
-
 
     .popUp{
         max-width: 300px;

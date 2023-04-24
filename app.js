@@ -8,14 +8,16 @@ const popUp_fixed = document.createElement('div')
 
 const todo = new Todo
 
-let stateInitial = true
 
 
-const showMenu = new ShowMenu('#showForm')
+const showMenu = new ShowMenu('form', 'btn--showForm')
 
-showMenu.showFormAction()
 
-window.addEventListener('DOMContentLoaded', () => todo.getTodos())
+window.addEventListener('DOMContentLoaded', () => {
+    const elementString =  `<li>hello </li>`
+    root.childElementCount < 0 ? root.appendChild(elementString): todo.getTodos()
+    showMenu.showFormAction()
+})
 
 handleChange.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -26,12 +28,10 @@ handleChange.addEventListener('submit', (e) => {
 root.addEventListener('click', (e) => {
 
     if(e.target.classList.contains('fa-trash-can')){
-        console.log(typeof e.target.parentElement.parentElement.parentElement.parentElement)
         showPopUp(e.target.parentElement.parentElement.parentElement.parentElement)
     }
 
     if(e.target.classList.contains('btn--todo')){
-        console.log(typeof 'none')
         showPopUp('none')
     }
     
@@ -40,13 +40,32 @@ root.addEventListener('click', (e) => {
         todo.getTodos()
     }
 
+    if(e.target.classList.contains('fa-arrow-up-right-from-square')){
+        showContentCard(e.target.parentElement.parentElement.parentElement)
+    }
+
+    if(e.target.classList.contains('fa-right-to-bracket')){
+        // reference.classList.remove('todo-card--show')
+        console.log('click')
+    }
 
     
     e.stopPropagation()
 })
 
+function showContentCard (reference) {
+    const btnTransform = reference.querySelector('.showDescription')
+
+    reference.classList.add('todo-card--show')
+
+    btnTransform.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>'
+
+    
+    
+}
 
 function showPopUp (reference) {
+    
     if(typeof reference === 'object'){
         popUp_fixed.style.display = 'flex'
         popUp_fixed.setAttribute('class', 'popUp-fixed')

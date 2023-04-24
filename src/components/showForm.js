@@ -1,32 +1,43 @@
 class ShowMenu {
-    constructor(state){
-        if(typeof state !== 'string')
+    constructor(elements, delegation){
+
+        if(typeof elements !== 'string' && typeof delegation !== 'string')
             throw new Error('requiered string Parametro')
 
         this.useState = {
-            state: state
+            elements: elements,
+            delegation: delegation
         }
     }
 
     showFormAction() {
-        const elemenetValid = document.querySelector(this.useState.state)
-        const elementDOM = document.querySelector('form')
+        const elementDOM = document.querySelectorAll(`.${this.useState.elements}`)
+        const elemenetValid = document.querySelectorAll(`.${this.useState.delegation}`)
+        
+        let initialheigth = 0
+        let heigtEClientHeight
+        let heigthScrollHeight
+     
+        for (let i = 0; i < elemenetValid.length; i++) {
+                
+            elemenetValid[i].addEventListener('click', () => {
+                
+                const formid = parseInt(elemenetValid[i].dataset.formid)
 
-        elemenetValid.addEventListener('click', () => {
-            let initialheigth = 0
-            let heigtEClientHeight = elementDOM.clientHeight
-            let heigthScrollHeight = elementDOM.scrollHeight
+                for (let i = 0; i < elementDOM.length; i++) {
+                 
+                    heigtEClientHeight = elementDOM[formid].clientHeight
+                    heigthScrollHeight = elementDOM[formid].scrollHeight
+                    
+                    if(heigtEClientHeight === initialheigth){
+                        elementDOM[formid].style = `height:${heigthScrollHeight}px; padding: 1rem 2rem;`
+                        return   
+                    }
 
-            if(heigtEClientHeight === 0){
-                elementDOM.style = `height: ${heigthScrollHeight}px;  opacity: 1; padding: 1rem;`
-                elemenetValid.innerHTML = `<i class="fa-solid fa-xmark"></i>Close`
-                return
-            }
-
-            elementDOM.style = `${initialheigth}px opacity: 0; padding: 0;`
-            elemenetValid.innerHTML = `<i class="fa-solid fa-plus"></i>Created`
-
-        }) 
+                    elementDOM[formid].style = `height:${initialheigth}; padding: ${initialheigth};`
+                }
+            })
+        }
     }
 }
 
