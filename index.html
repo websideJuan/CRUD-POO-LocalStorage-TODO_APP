@@ -17,147 +17,205 @@
 
 </head>
 <body>
+
     <nav>
-        <div class="nav_brand">
-            <a href="#" class="nav_logo">Tareas</a>
-        </div>
-
-        <div class="nav-btns">
-            <button class="btn ">
-                <i class="fa-regular fa-sun"></i>
-            </button>
-
-
-            <button class="btn nav-btn-activate">
-                <i class="fa-regular fa-moon"></i>
-            </button>
-        </div>
+        <!-- <div class="container"> -->
+            <div class="navbar-content">
+                <div class="nav_brand">
+                    <a href="#" class="nav_logo">Fullstack</a>
+                </div>
+        
+                <div class="nav-btns">
+                    <button class="btn nav-btn-activate">
+                        <i class="fa-regular fa-sun"></i>
+                    </button>
+        
+        
+                    <button class="btn">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                </div>
+        
+                <div class="nav-content">
+                    <ul class="navbar-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Stacks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">skills</a>
+                        </li>
+                    </ul>
+                </div>
+            
+                <button class="btn btn--hamburger">
+                    <i class="fa-solid fa-bars fa-2xl"></i>
+                </button>
+            </div>
     
+        <!-- </div> -->
     </nav>
 
+    <main>
+
+        <div class="container">
+
+            <div class="hero">
+                <picture class="hero-imageContent">
+                    <source media="(min-width: 810px)" srcset="./src/assets/blog/ecommerce-gb2880d7bf_1280.jpg"/>
+                    <img src="./src/assets/blog/ecommerce-ge0cad8a7c_640.jpg" alt="hero image for Home page" class="hero-image">
+                </picture>
+        
+                <div class="hero-absolute">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Desarrollador Full Stack <span>javascript!</span> </h1>
+                    </div>
+                    <p class="hero-text">
+                        Diseño y desarrollo Web!
+                    </p>
+
+                    <p class="hero-text">
+                        Juan Herrera Wamparo
+                    </p>
+
+                    <!-- <div class="hero-text" style="width: 80%;">
+                        <img src="./src/assets/blog/ecommerce-ge0cad8a7c_640.jpg" alt="" style="width: 100%;">
+                    </div> -->
+
+                    <p class="hero-text">
+                        😊 * 💻 * 📱
+                    </p>
+                </div>
+            </div>
+
+            
+        </div>
+    
+    </main>
     
     <div class="container">
-        <div class="grid-col-one">
-
-            <form id="form_action" class="form form-created formAction">
+        <div class="grid-form">
+            <div class="grid-col-one">
     
-                <div class="form_group">
-                    <label>Nombra tu Todo</label>
-                    <input 
-                        type="text" 
-                        name="title" 
-                        id="title" 
-                        class="form_control" 
-                        placeholder="Tienes una tarea que realizar"
-                        required
-                        />
-                </div>
-    
-                <div class="form_group">
-                    
-                    <select name="select" id="selectedId" class="form_control" style="width: fit-content; margin-left: auto;">
-                        <option value="Important">Importante</option>
-                        <option value="moderada">Moderada</option>
-                        <option value="noimportante">Puede Esperar</option>
-                    </select>
-                </div>
-    
-                <div class="form_group">
-                    <label>Description</label>
-                    
-    
-                    <textarea 
-                        rows="10"
-                        class="form_control" 
-                        name="descriptiom" 
-                        id="descriptiom" 
-                        placeholder="Description Todo"
-                        
-                    ></textarea>
-                </div>
-    
-                <div class="checkbox_form">
-                    <label>State of Todo</label>
-                    <input 
-                        type="checkbox" 
-                        name="Important" 
-                        id="importantTodo"
-                        />
-                </div>
-    
-    
-                <button type="submit" id="handleSubmit" class="btn--form">
-                    Create Todo
-                </button>
-            </form>
-    
-            <div class="form_btn">
-                <button class="btn--showForm showForm" data-formId="0">
-                    <i class="fa-solid fa-plus"></i> Created
-                </button>
-            </div>
-
-
-            <form id="form_filter" class="form form-filter ">
-                <div class="form_group">
-                    <label>Nombra tu Todo</label>
-                    <input 
-                        type="text" 
-                        name="title" 
-                        id="title" 
-                        class="form_control" 
-                        placeholder="Tienes una tarea que realizar"
-                        required
-                        />
-                </div>
-            </form>
-
-            <div class="form_btn">
-                <button class="btn--showForm showForm" data-formid="1">
-                    <i class="fa-solid fa-filter"></i> Add filters
-                </button>
-            </div>
-        </div>
-
-
+                <form id="form_action" class="form form-created formAction">
         
-        <ul class="list_todos" id="root"></ul>
-
-        <aside class="aside">
-            <div class="aside-absolute">
-                <div class="aside-about">
-                    <img src="./src/assets/Juan_Francisco_Herrera-removebg-preview.png" alt="image perfil del desarrollador de esta web" class="aside-img">
-
-                    <div class="aside-about-content">
-                        <h3 class="title-content">Juan Herrera W!</h3>
-                        <p class="subtitle-content">Diseñador y desarrollador Web!</p>
-                        <p class="paragrap-content">Desarrollador Web autodidacta orgulloso de lo logrado con mis propios medios, claro apoyo de toda una industria amigable con los recien llegados😊</p>
-                        <a href="#" class="cta cta--perfil">veiw >></a>
+                    <div class="form_group">
+                        <label>Nombra tu Todo</label>
+                        <input 
+                            type="text" 
+                            name="title" 
+                            id="title" 
+                            class="form_control" 
+                            placeholder="Tienes una tarea que realizar"
+                            required
+                            />
                     </div>
+        
+                    <div class="form_group">
+                        
+                        <select name="select" id="selectedId" class="form_control" style="width: fit-content; margin-left: auto;">
+                            <option value="Important">Importante</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="noimportante">Puede Esperar</option>
+                        </select>
+                    </div>
+        
+                    <div class="form_group">
+                        <label>Description</label>
+                        
+        
+                        <textarea 
+                            rows="10"
+                            class="form_control" 
+                            name="descriptiom" 
+                            id="descriptiom" 
+                            placeholder="Description Todo"
+                            
+                        ></textarea>
+                    </div>
+        
+                    <div class="checkbox_form">
+                        <label>State of Todo</label>
+                        <input 
+                            type="checkbox" 
+                            name="Important" 
+                            id="importantTodo"
+                            />
+                    </div>
+        
+        
+                    <button type="submit" id="handleSubmit" class="btn--form">
+                        Create Todo
+                    </button>
+                </form>
+        
+                <div class="form_btn">
+                    <button class="btn--showForm showForm" data-formId="0">
+                        <i class="fa-solid fa-plus"></i> Created
+                    </button>
                 </div>
-                <div class="aside-social">
-                    <div class="aside-social-group">
-                        <i class="fa-brands fa-facebook"></i>
-                        <a href="#" class="aside-banner facebook">Facebook</a>
+    
+    
+                <form id="form_filter" class="form form-filter ">
+                    <div class="form_group">
+                        <label>Nombra tu Todo</label>
+                        <input 
+                            type="text" 
+                            name="title" 
+                            id="title" 
+                            class="form_control" 
+                            placeholder="Tienes una tarea que realizar"
+                            required
+                            />
                     </div>
-                    <div class="aside-social-group">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <a href="#" class="aside-banner whatsaap">whatsaap</a>
-                    </div>
-                    <div class="aside-social-group">
-                        <i class="fa-brands fa-instagram"></i>
-                        <a href="#" class="aside-banner instagram">Instagram</a>
-                    </div>
+                </form>
+    
+                <div class="form_btn">
+                    <button class="btn--showForm showForm" data-formid="1">
+                        <i class="fa-solid fa-filter"></i> Add filters
+                    </button>
                 </div>
             </div>
-        </aside>
+    
+    
+            
+            <ul class="list_todos" id="root"></ul>
+    
+            <aside class="aside">
+                <div class="aside-absolute">
+                    <div class="aside-about">
+                        <img src="./src/assets/Juan_Francisco_Herrera-removebg-preview.png" alt="image perfil del desarrollador de esta web" class="aside-img">
+    
+                        <div class="aside-about-content">
+                            <h3 class="title-content">Juan Herrera W!</h3>
+                            <p class="subtitle-content">Diseñador y desarrollador Web!</p>
+                            <p class="paragrap-content">Desarrollador Web autodidacta orgulloso de lo logrado con mis propios medios, claro apoyo de toda una industria amigable con los recien llegados😊</p>
+                            <a href="#" class="cta cta--perfil">veiw >></a>
+                        </div>
+                    </div>
+                    <div class="aside-social">
+                        <div class="aside-social-group">
+                            <i class="fa-brands fa-facebook"></i>
+                            <a href="#" class="aside-banner facebook">Facebook</a>
+                        </div>
+                        <div class="aside-social-group">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="#" class="aside-banner whatsaap">whatsaap</a>
+                        </div>
+                        <div class="aside-social-group">
+                            <i class="fa-brands fa-instagram"></i>
+                            <a href="#" class="aside-banner instagram">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </div>
-
-
-
-
-
-
 
 
     <template id="template_li">
@@ -197,7 +255,6 @@
             </li>
         
     </template>
-
 
 
     <script src="./app.js" type="module"></script>
